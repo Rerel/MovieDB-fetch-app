@@ -12,8 +12,6 @@
 
 @property (nonatomic) NSURLSession *session;
 
-@property (nonatomic, copy) NSDictionary *showDetails;
-
 @end
 
 @implementation TVShowViewController
@@ -36,11 +34,13 @@
 #pragma mark - Show details request
 
 - (NSString *)formatLabel:(NSString *)label withValue:(NSString *)value {
-    if (value) {
-        NSString *formatedString = [NSString stringWithFormat:@"%@ %@", label, value];
-        return formatedString;
-    }
-    return @"";
+
+    NSString *nullString = [NSString stringWithFormat:@"%@", value];
+    if ([nullString isEqualToString:@""] || [nullString isEqualToString:@"<null>"])
+        return [NSString stringWithFormat:@"%@ missing data", label];
+
+    NSString *formatedString = [NSString stringWithFormat:@"%@ %@", label, value];
+    return formatedString;
 }
 
 - (void)fetchTVShowDetails:(NSString *)showID {

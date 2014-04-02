@@ -148,7 +148,7 @@
                                     <constraint firstAttribute="height" constant="315" id="U6J-hh-ZXE"/>
                                     <constraint firstAttribute="width" constant="623" id="v5R-aM-8vu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
