@@ -6,31 +6,15 @@
 //  Copyright (c) 2014 Aurélien Lemesle. All rights reserved.
 //
 
-#import "TVShowViewController.h"
-#import "TVShowsTableViewController.h"
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    TVShowsTableViewController *tvShowsTableVC = [[TVShowsTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tvShowsTableVC];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                           [UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:22.0],
                                                           NSFontAttributeName, nil]];
-    
-    TVShowViewController *tvShowVC = [[TVShowViewController alloc] init];
-    tvShowsTableVC.tvShowViewController = tvShowVC;
-    
-    self.window.rootViewController = navigationController;
-    
-    self.window.backgroundColor = [UIColor blackColor];
-    [self.window makeKeyAndVisible];
-
     return YES;
 }
 							

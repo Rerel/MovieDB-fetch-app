@@ -12,8 +12,6 @@
 
 @interface TVShowsTableViewController : UITableViewController
 
-@property (nonatomic) TVShowViewController *tvShowViewController;
-
 - (void)fetchShowsFeed;
 
 @end

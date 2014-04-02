@@ -56,6 +56,7 @@
 		679F3D7318EABD040091C303 /* TVShowsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TVShowsTableViewController.m; path = ../TVShowsTableViewController.m; sourceTree = "<group>"; };
 		679F3D7518EAC0F40091C303 /* TVShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowViewController.h; sourceTree = "<group>"; };
 		679F3D7618EAC0F40091C303 /* TVShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowViewController.m; sourceTree = "<group>"; };
+		679F3E8D18EAE8E30091C303 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +132,7 @@
 		679F3D4118EABBF20091C303 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				679F3E8D18EAE8E30091C303 /* defines.h */,
 				679F3D4218EABBF20091C303 /* iPad-theMovieDB-Fetcher-Info.plist */,
 				679F3D4318EABBF20091C303 /* InfoPlist.strings */,
 				679F3D4618EABBF20091C303 /* main.m */,
@@ -464,6 +466,7 @@
 				679F3D6B18EABBF20091C303 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		679F3D6C18EABBF20091C303 /* Build configuration list for PBXNativeTarget "iPad-theMovieDB-FetcherTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +475,7 @@
 				679F3D6E18EABBF20091C303 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

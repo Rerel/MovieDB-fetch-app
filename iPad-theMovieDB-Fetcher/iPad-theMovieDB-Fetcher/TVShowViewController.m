@@ -10,40 +10,60 @@
 
 @interface TVShowViewController ()
 
+@property (nonatomic) NSURLSession *session;
+
+@property (nonatomic, copy) NSDictionary *showDetails;
+
 @end
 
 @implementation TVShowViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self.view setBackgroundColor:BEIGE_COLOR];
+
+    [self.showPoster setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:self.posterURL]]];
+    self.firstOnAirLabel.text = [NSString stringWithFormat:@"Show first appeared on: %@", self.showData[@"first_air_date"]];
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    self.session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    
+    [self fetchTVShowDetails:self.showData[@"id"]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Show details request
+
+- (NSString *)formatLabel:(NSString *)label withValue:(NSString *)value {
+    if (value) {
+        NSString *formatedString = [NSString stringWithFormat:@"%@ %@", label, value];
+        return formatedString;
+    }
+    return @"";
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)fetchTVShowDetails:(NSString *)showID {
+    NSURL *url = [[NSURL alloc] initWithString:
+                  [NSString stringWithFormat:@"%@/3/tv/%@?api_key=%@", API_ROOT_URL, showID, THEMOVIEDB_API_KEY]];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request completionHandler:
+                                      ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                          NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                          
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              self.showEpisodesLabel.text = [self formatLabel:self.showEpisodesLabel.text
+                                                                                    withValue:jsonObject[@"number_of_episodes"]];
+                                              self.showSeasonsLabel.text = [self formatLabel:self.showSeasonsLabel.text
+                                                                                    withValue:jsonObject[@"number_of_seasons"]];
+                                              self.showStatusLabel.text = [self formatLabel:self.showStatusLabel.text
+                                                                                   withValue:jsonObject[@"status"]];
+                                              self.showOverviewText.text = [self formatLabel:self.showOverviewText.text
+                                                                                   withValue:jsonObject[@"overview"]];
+                                          });
+                                      }];
+    [dataTask resume];
 }
-*/
 
 @end

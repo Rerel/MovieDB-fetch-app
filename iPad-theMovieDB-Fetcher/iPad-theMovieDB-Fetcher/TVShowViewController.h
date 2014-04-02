@@ -10,4 +10,14 @@
 
 @interface TVShowViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *firstOnAirLabel;
+@property (weak, nonatomic) IBOutlet UILabel *showEpisodesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *showSeasonsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *showStatusLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *showPoster;
+@property (weak, nonatomic) IBOutlet UITextView *showOverviewText;
+
+@property (nonatomic, copy) NSURL *posterURL;
+@property (nonatomic, copy) NSDictionary *showData;
+
 @end
