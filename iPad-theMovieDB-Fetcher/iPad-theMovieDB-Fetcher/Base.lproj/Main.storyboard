@@ -13,14 +13,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowCell" id="qyg-EJ-HSm">
-                                <rect key="frame" x="0.0" y="86" width="768" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TVShowCell" rowHeight="100" id="qyg-EJ-HSm" customClass="TVShowCell">
+                                <rect key="frame" x="0.0" y="86" width="768" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qyg-EJ-HSm" id="8Nd-3z-BVx">
-                                    <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="735" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-8w-Ys8">
+                                            <rect key="frame" x="32" y="10" width="123" height="79"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="79" id="PEt-i0-asP"/>
+                                                <constraint firstAttribute="width" constant="123" id="zH6-ac-OVQ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-qI-BLj">
+                                            <rect key="frame" x="177" y="25" width="334" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="334" id="GqI-Fi-Zcl"/>
+                                                <constraint firstAttribute="height" constant="49" id="r3S-qD-XEd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="22"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pE-dy-rHt">
+                                            <rect key="frame" x="577" y="25" width="158" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="158" id="79v-IX-6lA"/>
+                                                <constraint firstAttribute="height" constant="49" id="Miw-AT-Q9m"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2lh-8w-Ys8" firstAttribute="leading" secondItem="8Nd-3z-BVx" secondAttribute="leading" constant="32" id="A2M-R7-Ngh"/>
+                                        <constraint firstItem="dGa-qI-BLj" firstAttribute="leading" secondItem="2lh-8w-Ys8" secondAttribute="trailing" constant="22" id="Bet-Ah-r0e"/>
+                                        <constraint firstItem="7pE-dy-rHt" firstAttribute="top" secondItem="8Nd-3z-BVx" secondAttribute="top" constant="25" id="ZkC-xV-mjw"/>
+                                        <constraint firstItem="7pE-dy-rHt" firstAttribute="leading" secondItem="dGa-qI-BLj" secondAttribute="trailing" constant="66" id="a2Q-NG-bVz"/>
+                                        <constraint firstItem="dGa-qI-BLj" firstAttribute="top" secondItem="8Nd-3z-BVx" secondAttribute="top" constant="25" id="jXl-Sr-PIo"/>
+                                        <constraint firstItem="2lh-8w-Ys8" firstAttribute="top" secondItem="8Nd-3z-BVx" secondAttribute="top" constant="10" id="xkB-Zf-5SI"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="rating" destination="7pE-dy-rHt" id="7c4-Kq-3tQ"/>
+                                    <outlet property="tvShowThumbnail" destination="2lh-8w-Ys8" id="4tr-TN-UHA"/>
+                                    <outlet property="tvShowTitle" destination="dGa-qI-BLj" id="fQH-kq-6Lh"/>
                                     <segue destination="vUg-xi-z1Y" kind="push" identifier="showDetail" id="Pjd-z7-BJ0"/>
                                 </connections>
                             </tableViewCell>

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Aurélien Lemesle. All rights reserved.
 //
 
+#import "TVShowCell.h"
 #import "TVShowViewController.h"
 #import "TVShowsTableViewController.h"
 
@@ -20,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.navigationItem.title = @"Top Rated TV Shows";
     [self.view setBackgroundColor:BEIGE_COLOR];
     
@@ -40,21 +41,29 @@
     return [self.tvShows count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TVShowCell" forIndexPath:indexPath];
+    TVShowCell *cell = (TVShowCell *)[tableView dequeueReusableCellWithIdentifier:@"TVShowCell" forIndexPath:indexPath];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TVShowCell"];
+        cell = [[TVShowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TVShowCell"];
     }
+    
     NSDictionary *tvShow = self.tvShows[indexPath.row];
     
     // Display show info in the table cell
     cell.backgroundColor = BEIGE_COLOR;
-    cell.textLabel.text = tvShow[@"original_name"];
-    cell.detailTextLabel.text = tvShow[@"first_air_date"];
+    cell.tvShowTitle.text = tvShow[@"original_name"];
+    NSString *rating = [NSString stringWithFormat:@"Ratings: %@", tvShow[@"vote_average"]];
+    if ([rating length] > 12)
+        cell.rating.text = [rating substringToIndex:12];
+    else
+        cell.rating.text = rating;
     NSURL *showThumbnailURL = [self imageURLWithSize:@"w92" andPath:tvShow[@"poster_path"]];
-    cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:showThumbnailURL]];
-    
+    cell.tvShowThumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:showThumbnailURL]];
+
     return cell;
 }
 
@@ -89,7 +98,7 @@
                                       ^(NSData *data, NSURLResponse *response, NSError *error) {
                                           NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                           self.tvShows = jsonObject[@"results"];
-
+                                          
                                           dispatch_async(dispatch_get_main_queue(), ^{
                                               [self.tableView reloadData];
                                           });

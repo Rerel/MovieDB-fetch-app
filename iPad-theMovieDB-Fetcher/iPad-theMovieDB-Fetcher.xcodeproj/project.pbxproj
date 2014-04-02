@@ -22,6 +22,7 @@
 		679F3D6618EABBF20091C303 /* iPad_theMovieDB_FetcherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F3D6518EABBF20091C303 /* iPad_theMovieDB_FetcherTests.m */; };
 		679F3D7418EABD040091C303 /* TVShowsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F3D7318EABD040091C303 /* TVShowsTableViewController.m */; };
 		679F3D7718EAC0F40091C303 /* TVShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F3D7618EAC0F40091C303 /* TVShowViewController.m */; };
+		67BBFB4418EC2B9A00A814E4 /* TVShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BBFB4318EC2B9A00A814E4 /* TVShowCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		679F3D7518EAC0F40091C303 /* TVShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowViewController.h; sourceTree = "<group>"; };
 		679F3D7618EAC0F40091C303 /* TVShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowViewController.m; sourceTree = "<group>"; };
 		679F3E8D18EAE8E30091C303 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		67BBFB4218EC2B9A00A814E4 /* TVShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVShowCell.h; sourceTree = "<group>"; };
+		67BBFB4318EC2B9A00A814E4 /* TVShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVShowCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				679F3D4A18EABBF20091C303 /* AppDelegate.m */,
 				679F3D5218EABBF20091C303 /* Images.xcassets */,
 				679F3D4C18EABBF20091C303 /* Main.storyboard */,
+				67BBFB4218EC2B9A00A814E4 /* TVShowCell.h */,
+				67BBFB4318EC2B9A00A814E4 /* TVShowCell.m */,
 				679F3D7218EABD040091C303 /* TVShowsTableViewController.h */,
 				679F3D7318EABD040091C303 /* TVShowsTableViewController.m */,
 				679F3D7518EAC0F40091C303 /* TVShowViewController.h */,
@@ -259,6 +264,7 @@
 				679F3D7418EABD040091C303 /* TVShowsTableViewController.m in Sources */,
 				679F3D4B18EABBF20091C303 /* AppDelegate.m in Sources */,
 				679F3D4718EABBF20091C303 /* main.m in Sources */,
+				67BBFB4418EC2B9A00A814E4 /* TVShowCell.m in Sources */,
 				679F3D7718EAC0F40091C303 /* TVShowViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
